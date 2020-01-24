@@ -1,15 +1,81 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="11134" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="15702" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+    <device id="watch38"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="11055"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="15501"/>
     </dependencies>
     <scenes>
-        <!--Interface Controller-->
+        <!--InterfaceController-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModuleProvider="target"/>
+                <controller identifier="InterfaceController" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="FitnessApp_WatchKit_App" customModuleProvider="target">
+                    <items>
+                        <label alignment="left" text="Activity Type" id="B3K-oY-dqn"/>
+                        <picker height="42" alignment="left" id="FCu-l5-I4z">
+                            <connections>
+                                <action selector="activityPickerChanged:" destination="AgC-eL-Hgc" id="vhU-XN-TFC"/>
+                            </connections>
+                        </picker>
+                        <button width="1" alignment="left" title="Start Workout" id="u6Q-Oq-8ro">
+                            <connections>
+                                <action selector="startWorkoutTapped" destination="AgC-eL-Hgc" id="OU7-bl-79O"/>
+                            </connections>
+                        </button>
+                    </items>
+                    <connections>
+                        <outlet property="activityType" destination="FCu-l5-I4z" id="9ee-VH-8Rv"/>
+                    </connections>
+                </controller>
             </objects>
+            <point key="canvasLocation" x="-33" y="7"/>
+        </scene>
+        <!--WorkoutInterfaceController-->
+        <scene sceneID="25U-VS-6oR">
+            <objects>
+                <controller identifier="WorkoutInterfaceController" id="saf-Pm-uYx" customClass="WorkoutInterfaceController" customModule="FitnessApp_WatchKit_App" customModuleProvider="target">
+                    <items>
+                        <button alignment="left" id="dPK-Yp-8p6">
+                            <group key="contentGroup" width="1" alignment="left" layout="vertical" spacing="0.0" id="NZ1-65-nNR">
+                                <items>
+                                    <label alignment="center" text="0.00" textAlignment="center" id="7ei-aR-cxJ">
+                                        <fontDescription key="font" type="system" pointSize="48"/>
+                                    </label>
+                                    <label alignment="center" text="KILOMETERS" id="2lR-bN-Tbz">
+                                        <fontDescription key="font" style="UICTFontTextStyleCaption2"/>
+                                    </label>
+                                </items>
+                            </group>
+                            <connections>
+                                <action selector="changeDisplayMode" destination="saf-Pm-uYx" id="xUE-Y2-IyC"/>
+                            </connections>
+                        </button>
+                        <button width="1" alignment="left" title="Stop" id="bOf-vH-YZc">
+                            <connections>
+                                <action selector="stopWorkout" destination="saf-Pm-uYx" id="Naa-25-q4T"/>
+                            </connections>
+                        </button>
+                        <button width="1" alignment="left" hidden="YES" title="Resume" id="oHy-oE-b8c">
+                            <connections>
+                                <action selector="resumeWorkout" destination="saf-Pm-uYx" id="YZW-bP-TWd"/>
+                            </connections>
+                        </button>
+                        <button width="1" alignment="left" hidden="YES" title="End" id="WbL-vG-HiY">
+                            <connections>
+                                <action selector="endWorkout" destination="saf-Pm-uYx" id="ZdJ-R9-XV1"/>
+                            </connections>
+                        </button>
+                    </items>
+                    <connections>
+                        <outlet property="endButton" destination="WbL-vG-HiY" id="XIu-iX-cUe"/>
+                        <outlet property="quantityLabel" destination="7ei-aR-cxJ" id="wan-4z-p7F"/>
+                        <outlet property="resumeButton" destination="oHy-oE-b8c" id="azP-d1-QEq"/>
+                        <outlet property="stopButton" destination="bOf-vH-YZc" id="6lr-f9-HFJ"/>
+                        <outlet property="unitLabel" destination="2lR-bN-Tbz" id="2Oc-ky-CwE"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="222" y="7"/>
         </scene>
     </scenes>
 </document>

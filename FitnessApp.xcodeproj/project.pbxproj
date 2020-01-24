@@ -20,6 +20,9 @@
 		52F28D8223DA13AC00D3649C /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F28D8123DA13AC00D3649C /* InterfaceController.swift */; };
 		52F28D8423DA13AC00D3649C /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F28D8323DA13AC00D3649C /* ExtensionDelegate.swift */; };
 		52F28D8623DA13AC00D3649C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52F28D8523DA13AC00D3649C /* Assets.xcassets */; };
+		52F28D9623DA144A00D3649C /* WorkoutInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F28D9523DA144A00D3649C /* WorkoutInterfaceController.swift */; };
+		52F28D9A23DA23F500D3649C /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52F28D9923DA23F500D3649C /* HealthKit.framework */; };
+		52F28D9D23DA245600D3649C /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52F28D9C23DA245600D3649C /* HealthKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +85,11 @@
 		52F28D8323DA13AC00D3649C /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
 		52F28D8523DA13AC00D3649C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		52F28D8723DA13AC00D3649C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		52F28D9523DA144A00D3649C /* WorkoutInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutInterfaceController.swift; sourceTree = "<group>"; };
+		52F28D9723DA23F500D3649C /* FitnessApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FitnessApp.entitlements; sourceTree = "<group>"; };
+		52F28D9923DA23F500D3649C /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		52F28D9B23DA245600D3649C /* FitnessApp WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "FitnessApp WatchKit Extension.entitlements"; sourceTree = "<group>"; };
+		52F28D9C23DA245600D3649C /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS6.1.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +97,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52F28D9A23DA23F500D3649C /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,6 +105,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52F28D9D23DA245600D3649C /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,6 +119,7 @@
 				52F28D7123DA13AB00D3649C /* FitnessApp WatchKit App */,
 				52F28D8023DA13AC00D3649C /* FitnessApp WatchKit Extension */,
 				52F28D5A23DA13AA00D3649C /* Products */,
+				52F28D9823DA23F500D3649C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -125,6 +136,7 @@
 		52F28D5B23DA13AA00D3649C /* FitnessApp */ = {
 			isa = PBXGroup;
 			children = (
+				52F28D9723DA23F500D3649C /* FitnessApp.entitlements */,
 				52F28D5C23DA13AA00D3649C /* AppDelegate.swift */,
 				52F28D5E23DA13AA00D3649C /* SceneDelegate.swift */,
 				52F28D6023DA13AA00D3649C /* ViewController.swift */,
@@ -149,12 +161,23 @@
 		52F28D8023DA13AC00D3649C /* FitnessApp WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
+				52F28D9B23DA245600D3649C /* FitnessApp WatchKit Extension.entitlements */,
 				52F28D8123DA13AC00D3649C /* InterfaceController.swift */,
 				52F28D8323DA13AC00D3649C /* ExtensionDelegate.swift */,
 				52F28D8523DA13AC00D3649C /* Assets.xcassets */,
 				52F28D8723DA13AC00D3649C /* Info.plist */,
+				52F28D9523DA144A00D3649C /* WorkoutInterfaceController.swift */,
 			);
 			path = "FitnessApp WatchKit Extension";
+			sourceTree = "<group>";
+		};
+		52F28D9823DA23F500D3649C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				52F28D9C23DA245600D3649C /* HealthKit.framework */,
+				52F28D9923DA23F500D3649C /* HealthKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -301,6 +324,7 @@
 			files = (
 				52F28D8423DA13AC00D3649C /* ExtensionDelegate.swift in Sources */,
 				52F28D8223DA13AC00D3649C /* InterfaceController.swift in Sources */,
+				52F28D9623DA144A00D3649C /* WorkoutInterfaceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -465,6 +489,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_ENTITLEMENTS = "FitnessApp WatchKit Extension/FitnessApp WatchKit Extension.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3PTYV272Z4;
 				INFOPLIST_FILE = "FitnessApp WatchKit Extension/Info.plist";
@@ -475,6 +501,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = ua.com.kr.ssh.FitnessApp.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -487,6 +514,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_ENTITLEMENTS = "FitnessApp WatchKit Extension/FitnessApp WatchKit Extension.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3PTYV272Z4;
 				INFOPLIST_FILE = "FitnessApp WatchKit Extension/Info.plist";
@@ -497,6 +526,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = ua.com.kr.ssh.FitnessApp.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -547,6 +577,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = FitnessApp/FitnessApp.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3PTYV272Z4;
 				INFOPLIST_FILE = FitnessApp/Info.plist;
@@ -556,6 +588,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = ua.com.kr.ssh.FitnessApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -565,6 +598,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = FitnessApp/FitnessApp.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3PTYV272Z4;
 				INFOPLIST_FILE = FitnessApp/Info.plist;
@@ -574,6 +609,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = ua.com.kr.ssh.FitnessApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

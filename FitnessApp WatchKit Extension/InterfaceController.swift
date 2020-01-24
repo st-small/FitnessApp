@@ -6,26 +6,43 @@
 //  Copyright © 2020 Stanly Shiyanovskiy. All rights reserved.
 //
 
+import HealthKit
 import WatchKit
 import Foundation
 
 
-class InterfaceController: WKInterfaceController {
+public class InterfaceController: WKInterfaceController {
 
-    override func awake(withContext context: Any?) {
+    // MARK: - UI elements
+    @IBOutlet private weak var activityType: WKInterfacePicker!
+    
+    // MARK: - Data
+    private let activities: [(String, HKWorkoutActivityType)] = [("Cycling", .cycling), ("Running", .running), ("Wheelchair", .wheelchairRunPace)]
+    private var selectedActivity = HKWorkoutActivityType.cycling
+    
+    public override func awake(withContext context: Any?) {
         super.awake(withContext: context)
+
+        var items = [WKPickerItem]()
+
+        for activity in activities {
+            let item = WKPickerItem()
+            item.title = activity.0.uppercased()
+            items.append(item)
+        }
+
+        activityType.setItems(items)
+    }
+
+    // MARK: - Actions
+    @IBAction private func activityPickerChanged(_ value: Int) {
+        selectedActivity = activities[value].1
+    }
+    
+    @IBAction private func startWorkoutTapped() {
+        guard HKHealthStore.isHealthDataAvailable() else { return }
         
-        // Configure interface objects here.
-    }
-    
-    override func willActivate() {
-        // This method is called when watch view controller is about to be visible to user
-        super.willActivate()
-    }
-    
-    override func didDeactivate() {
-        // This method is called when watch view controller is no longer visible
-        super.didDeactivate()
+        WKInterfaceController.reloadRootPageControllers(withNames: ["WorkoutInterfaceController"], contexts: [selectedActivity], orientation: .horizontal, pageIndex: 0)
     }
 
 }
